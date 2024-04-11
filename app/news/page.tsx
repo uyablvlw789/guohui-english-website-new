@@ -36,7 +36,7 @@ export default async function PluralNewsPage() {
   return (
     <>
       <h1 className="mb-8 border-b-2 border-blue-400 pb-7 text-2xl dark:text-zinc-200">
-        We are pleased to share our company's recent updates.
+        We are pleased to share our companys recent updates.
       </h1>
 
       <div className="grid grid-cols-3 gap-6">
