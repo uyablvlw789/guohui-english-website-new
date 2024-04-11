@@ -6,9 +6,9 @@ import ProductCard from "./ProductCard";
 export default function ProductsSection() {
   return (
     <section className="container mx-auto">
-      <div className="flex gap-8 items-center">
-        <h3 className="text-3xl mb-12 font-bold">Product Center</h3>
-        <p className="text-xl mb-12 bg-blue-300 text-white uppercase px-4 py-2 hover:bg-white hover:text-blue-300 transition-all cursor-pointer">
+      <div className="flex items-center gap-8">
+        <h3 className="mb-12 text-3xl font-bold">Our Products </h3>
+        <p className="mb-12 cursor-pointer bg-blue-300 px-4 py-2 text-xl uppercase text-white transition-all hover:bg-white hover:text-blue-300">
           Market-oriented, product-centric
         </p>
       </div>

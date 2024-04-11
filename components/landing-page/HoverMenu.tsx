@@ -11,13 +11,14 @@ function HoverMenu({
     {
       linkTitle: "Heat storage/cooling equipment and materials",
       linkIcon: <GrStorage className="text-2xl text-gray-400" />,
-      linkAddress: "linkAddress 1",
+      linkAddress: "/products/heat-storage-cooling-equipment-and-materials",
     },
     {
       linkTitle:
         "Integrated Energy System for Generation, Grid, Load, and Storage",
       linkIcon: <IoMdGrid className="text-2xl text-gray-400" />,
-      linkAddress: "linkAddress 2",
+      linkAddress:
+        "/products/integrated-energy-system-generation-grid-load-storage",
     },
     {
       linkTitle: "Hydrogen/ammonia-hydrogen fusion technology",
@@ -27,32 +28,33 @@ function HoverMenu({
     {
       linkTitle: "Teaching/scientific laboratory equipment",
       linkIcon: <AiOutlineExperiment className="text-2xl text-gray-400" />,
-      linkAddress: "linkAddress 2",
+      linkAddress: "/products/teaching-scientific-laboratory-equipment",
     },
   ],
 }) {
   const [isOpen, setIsopen] = useState(false);
   return (
     <div
+      className={`z-50 dark:hover:${isOpen ? " text-zinc-800" : ""}`}
       onMouseLeave={() => {
         setIsopen(false);
       }}
     >
-      <div
+      <p
         className="relative cursor-pointer"
         onMouseEnter={() => setIsopen(true)}
       >
         {title}
-      </div>
+      </p>
       {isOpen && (
-        <ul className="absolute z-10 bg-white rounded-md w-72">
+        <ul className="absolute z-10 w-72 rounded-md dark:bg-zinc-950 dark:text-zinc-200">
           {menuList.map((listItem) => {
             return (
               <li
                 key={listItem.linkTitle}
-                className="p-4 border-b hover:bg-blue-100 flex gap-3"
+                className="z-50 flex gap-3 border-b px-6 py-4 hover:bg-blue-100 hover:text-zinc-800 dark:bg-zinc-900 dark:hover:text-zinc-600"
               >
-                <div className="border-r flex justify-center items-center p-3 pl-0">
+                <div className="flex items-center justify-center border-r p-3 pl-0 dark:border-zinc-950">
                   {listItem.linkIcon}
                 </div>
                 <Link href={listItem.linkAddress} className=" hover:underline">

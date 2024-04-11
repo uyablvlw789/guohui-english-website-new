@@ -16,6 +16,8 @@ export default function NewsArticleCard({
   coverImage,
   date,
 }: NewsArticleCardProps) {
+  const AWS_URL =
+    "https://poro-guohui-english-website.s3.us-west-1.amazonaws.com";
   return (
     <Card
       shadow="sm"
@@ -29,7 +31,7 @@ export default function NewsArticleCard({
           width="100%"
           alt={title}
           className="h-[240px] w-full object-cover"
-          src="/hero1.jpg"
+          src={`${AWS_URL}/${coverImage}`}
           isZoomed
         />
       </CardBody>

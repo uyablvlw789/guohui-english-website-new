@@ -1,10 +1,10 @@
 import { db } from "@/db";
 import ProductItem from "@/components/products/ProductItem";
 
-export default async function HydrogenAmmoniaHydrogenFusionTechnology() {
+export default async function HeatStorageCoolingEquipmentAndMaterialsPage() {
   const products = await db.product.findMany({
     where: {
-      category: "HYDROGEN_AMMONIA_HYDROGEN_FUSION_TECHNOLOGY",
+      category: "HEAT_STORAGE_COOLING_EQUIPMENT_AND_MATERIALS",
     },
   });
   return (
@@ -12,10 +12,10 @@ export default async function HydrogenAmmoniaHydrogenFusionTechnology() {
       {products.map((productItem) => {
         return (
           <ProductItem
+            key={productItem.name}
             productName={productItem.name}
             productImg={productItem.image}
             description={productItem.description}
-            key={productItem.name}
           />
         );
       })}

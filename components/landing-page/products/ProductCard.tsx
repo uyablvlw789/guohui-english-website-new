@@ -11,14 +11,15 @@ export default function ProductCard({
   if (!descendingOrder) {
     content = (
       <>
-        <div className="col-span-2 min-h-96">
+        <div className="col-span-3 ">
           <h2 className="mb-4 bg-blue-600 px-4 py-2 text-3xl text-white">
             {productCategory}
           </h2>
-          <p className="text-lg text-gray-700">{productDescription}</p>
         </div>
-        <div className="col-span-1 flex items-center justify-center border-4 border-blue-600 transition-all hover:scale-110">
+        <div className="col-span-3 flex items-center justify-center gap-10">
+          <p className="text-xl text-gray-200">{productDescription}</p>
           <Image
+            className="transition-all hover:scale-110"
             src={coverImage}
             alt="cover image"
             style={{ objectFit: "cover" }}
@@ -29,18 +30,19 @@ export default function ProductCard({
   } else {
     content = (
       <>
-        <div className="col-span-1 flex items-center justify-center border-4 border-blue-600 transition-all hover:scale-110">
+        <div className="col-span-3 ">
+          <h2 className="mb-4 bg-blue-600 px-4 py-2 text-3xl text-white">
+            {productCategory}
+          </h2>
+        </div>
+        <div className="col-span-3 flex items-center justify-center gap-10 ">
           <Image
+            className="transition-all hover:scale-110"
             src={coverImage}
             alt="cover image"
             style={{ objectFit: "cover" }}
           />
-        </div>
-        <div className="col-span-2 min-h-96">
-          <h2 className="mb-4 bg-blue-600 px-4 py-2 text-3xl text-white">
-            {productCategory}
-          </h2>
-          <p className="text-lg text-gray-700">{productDescription}</p>
+          <p className="text-xl text-gray-200">{productDescription}</p>
         </div>
       </>
     );

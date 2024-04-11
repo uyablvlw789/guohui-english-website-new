@@ -1,37 +1,43 @@
-import BreadcrumbComponent from "@/components/BreadcrumbComponent";
-import Sidebar from "@/components/Sidebar";
+import BreadcrumbComponent from "@/components/layout/BreadcrumbComponent";
+import Sidebar from "@/components/layout/Sidebar";
 import newsImage1 from "@/public/news/news1.png";
 import newsImage2 from "@/public/hero1.jpg";
-import { ContentListItem } from "@/components/Sidebar";
+// import { ContentListItem } from "@/components/layout/Sidebar";
+import { db } from "@/db";
 
-const contentList: ContentListItem[] = [
-  {
-    title:
-      "Report on China's Energy Transition Outlook 2023 Presented at the United Nations Climate Conference",
-    date: new Date("11/12/2023"),
-    img: newsImage1,
-  },
-  {
-    title:
-      "Nationwide Hydrogen Production Projects Commence in Multiple Regions",
-    date: new Date("11/11/2023"),
-    img: newsImage2,
-  },
-];
-
-export default function ProductsLayout({
+export default async function ProductsLayout({
   children, // will be a page or nested layout
 }: {
   children: React.ReactNode;
 }) {
+  let contentList = await db.news.findMany();
+  // @ts-ignore
+  contentList = contentList
+    .sort((a, b) => {
+      // @ts-ignore
+      return b.updatedAt - a.updatedAt;
+    })
+    .slice(0, 2)
+    .map((listItem) => {
+      return {
+        title: listItem.title,
+        date: listItem.createdAt,
+        img: listItem.coverImage,
+      };
+    });
+
+  if (contentList.length === 0) {
+    return <>{children}</>;
+  }
+
   return (
     <main className=" dark:bg-zinc-900 dark:text-zinc-200">
       <div className="container mx-auto flex min-h-screen flex-col gap-8 p-8">
         <BreadcrumbComponent />
-        <div className="grid grid-cols-3 gap-8 p-8 pl-0">
-          <div className="col-span-2">{children}</div>
+        <div className="grid grid-cols-4 gap-8 p-8 pl-0">
+          <div className="col-span-3">{children}</div>
           <div className="col-span-1">
-            <Sidebar contentList={contentList} />
+            <Sidebar sidebarTitle="Explore more" contentList={contentList} />
           </div>
         </div>
       </div>

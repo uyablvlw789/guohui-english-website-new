@@ -1,4 +1,4 @@
-import BreadcrumbComponent from "@/components/BreadcrumbComponent";
+import BreadcrumbComponent from "@/components/layout/BreadcrumbComponent";
 import { db } from "@/db";
 import Output from "editorjs-react-renderer";
 import edjsHTML from "editorjs-html";
@@ -17,8 +17,6 @@ export default async function SingleNewsPage({
       id: parseInt(id),
     },
   });
-
-  // console.log(newsArticle?.content);
 
   const edjsParser = edjsHTML();
   // @ts-ignore
@@ -47,6 +45,6 @@ export async function generateStaticParams() {
       id: String(news.id),
     };
   });
-  console.log(returnValue);
+
   return returnValue;
 }

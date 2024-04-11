@@ -18,6 +18,10 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography"), nextui()],
+  plugins: [
+    require("@tailwindcss/typography"),
+    nextui(),
+    require("@tailwindcss/line-clamp"),
+  ],
 };
 export default config;

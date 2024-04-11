@@ -1,4 +1,4 @@
-import BreadcrumbComponent from "@/components/BreadcrumbComponent";
+import BreadcrumbComponent from "@/components/layout/BreadcrumbComponent";
 import companyPicture from "@/public/about/company-picture.png";
 import Image from "next/image";
 
@@ -12,7 +12,7 @@ export default async function AboutPage(props: any) {
           src={companyPicture}
           alt="company picture"
         />
-        <article className="prose lg:prose-xl col-span-2">
+        <article className="prose col-span-2 text-gray-200 lg:prose-xl">
           <p>
             &quot;Guohui (Wuhan) Smart Energy Co., Ltd. was jointly established
             by Dr. Leng Guanghui&apos;s team from the University of Birmingham

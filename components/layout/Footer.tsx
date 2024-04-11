@@ -4,9 +4,9 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <footer className=" text-zinc-200 dark:bg-zinc-700">
-      <div className="container mx-auto flex justify-between border-t-2 border-blue-200 px-4 py-10">
-        <div>
+    <footer className=" text-zinc-200 dark:bg-zinc-900">
+      <div className="container mx-auto flex justify-between px-4 py-20">
+        <div className="flex flex-col gap-3">
           <Image src={Logo} alt="Logo" className="h-16 w-16" />
           <p>&copy; 2023 Guohui Smart Energy Co.</p>
         </div>

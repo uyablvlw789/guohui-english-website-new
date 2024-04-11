@@ -10,6 +10,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Category {
+  HEAT_STORAGE_COOLING_EQUIPMENT_AND_MATERIALS
+  INTEGRATED_ENERGY_SYSTEM_FOR_GENERATION
+  HYDROGEN_AMMONIA_HYDROGEN_FUSION_TECHNOLOGY
+  TEACHING_SCIENTIFIC_LABORATORY_EQUIPMENT
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  image       String
+  category    Category
+}
+
 model News {
   id         Int      @id @default(autoincrement())
   title      String
